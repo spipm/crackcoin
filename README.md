@@ -6,6 +6,8 @@ Note that this is a PoC that runs only on local networks and does not provide pr
 
 This project was created as an exercise after reading "Mastering Bitcoin: unlocking digital cryptocurrencies".
 
+Crackcoin is not an active cryptocurrency and should not be confused with CrackCoin (CRACK).
+
 ## Material covered
 
 - Transaction-based mining as a PoC for a blockchain-free cryptocurrency
