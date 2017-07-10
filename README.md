@@ -43,6 +43,14 @@ Do note that crackcoin doesn't implement nearly as complex a protocol as describ
 
 ## Component basics
 
+- Wallets
+  - A wallet consists of a public/private keypair and an address. The address is derived from the public key.
+  
+- Transactions
+  - A transaction contains inputs, outputs and a unique identifier (called 'hash').
+  - An output has a unique identifier and is just an amount and a 'to'-address.
+  - An input points to a previous output, and uses the coins from that output. It must contain a compressed public key and a signature. This way nodes can identify that the 'to'-address from the previous output, which can be generated with the public key, is owned by the spender.
+
 - The GUI
   - When you create a transaction, a confirmation is created and both the transaction and the confirmation are shared on the network (UDP broadcast).
   - When using the broadcast option `b`, your crackcoin node will broadcast a request packet on the network. Any crackcoin node receiving the request will send all transactions and confirmations to you. This is so new nodes can 'sync'.
@@ -51,6 +59,7 @@ Do note that crackcoin doesn't implement nearly as complex a protocol as describ
   - When the server receives a new transaction, it checks if the transaction is valid and adds it to the database ('ledger').
   - When a confirmation is received, the transaction's confirmation is updated if the received difficulty is higher than the existing difficulty.
 
-- Mining
-  - The mining component simply creates confirmations for some transaction. These are just proof of work hashes for that transaction.
+- Mining and confirmations
+  - Confirmations are proof of work hashes for a transaction.
+  - The mining component simply creates confirmations for some transaction.
   - Mining is done by hardening the transaction confirmation with the least difficulty.
