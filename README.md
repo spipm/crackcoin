@@ -50,7 +50,7 @@ Do note that crackcoin doesn't implement nearly as complex a protocol as describ
 
 ## Usage
 
-The following steps will allow you to run the code on the local networ and spend coins.
+The following steps will allow you to run the code on the local network and spend coins.
 
 #### 1. Run generateGenesis.py
 
@@ -114,4 +114,6 @@ On node A, type `t` to make a transaction.
 At `To: ` you enter the wallet address for node B. At `Amount: ` just enter a small number like 137.
 Now if you press `i` on both nodes, you should see that the coins are transferred. Sometimes you need to type `b` on node B to sync the two.
 
-You can now transfer coins from device A to device B and back.
+You can now transfer coins from device A to device B and back. Here is a screenshot:
+
+![Alt text](https://raw.githubusercontent.com/DutchGraa/crackcoin/master/crackcoin-usage.png "Transfering coins")
