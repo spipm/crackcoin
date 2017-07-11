@@ -128,5 +128,5 @@ You can now transfer coins from device A to device B and back. Here is a screens
 ## Common problems
 
 - UDP is chosen to send transactions and such, because it doesn't take a lot of code. These packets have a maximum length of about 500 bytes. After that, you'll have to fragment packets, which kind of sucks. This is why zlib compression is used.  
-- Don't forget to close crackcoin with typing `q` and wait for the threads to end.
+- Don't forget to wait for the threads to end when you shut down crackcoin (`q` or CTRL-c).
 - Crackcoin only works on the local network because of UDP broadcasts, but you also need an internet connection or else the method `getLocalIP` will fail.
