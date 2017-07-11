@@ -15,6 +15,12 @@ This project was created as an exercise after reading "Mastering Bitcoin: unlock
 - Base58 encoding like bitcoin
 - Having the whole thing work (wallet, crypto, validation, networking, mining, etc)
 
+## Project's purpose
+
+The purpose of this project is to have people learn about the basic workings of a cryptocurrency. I've tried to create a simple-as-possible framework to play with. The current code allows nodes to exchange coins on a local network.  
+
+In its current state the application does not handle consensus forks. Also, you can perform some double-spending attacks and easily out-mine other nodes. No smart transaction confirmation graphing is implemented to outwit blockchain implementations. However, this is the whole point. These methods are not implemented, but because the code is so simple you can easily try out ideas to see how and if they work. Thus, I hope that the project can be an addition to both complete beginners in the field of cryptocurrencies as well as researchers or advanced coders that want to test new ideas. 
+
 ## Blockchain-free cryptocurrencies
 
 Most cryptocurrencies use a blockchain to validate transactions among other things. After years of running these networks it's beginning to look like blockchain-based currencies naturally evolve into a centralised network, because it's in the best interest of the participants to combine computing power to calculate solutions for blocks.
@@ -76,11 +82,11 @@ What you're seeing here is the base for a wallet. There is a private key, a comp
 
 #### 2. Change the database template
 
-The first time you run crackcoin.py, a database is generated from the template crackcoinBase.sql. This file holds the genesis transaction, which is the first transaction for the currency. This transaction created coins from thin air, and transfers then to an account.
+The first time you run crackcoin.py, a database is generated from the template crackcoinBase.sql. This file holds the genesis transaction, which is the first transaction for the currency. This transaction creates coins from thin air, and transfers then to an account.
 
 Go ahead and open crackcoinBase.sql. There is one line that looks like this:
 
-`INSERT INTO `transactions_outputs` (id,amount,address,outputHash,transactionHash) VALUES (1,31337,'crackcoint3wMFeUjEyrNMRjUR3Y8wm2LopaQmy3PRjaKyWceN',.......`
+`INSERT INTO transactions_outputs (id,amount,address,outputHash,transactionHash) VALUES (1,31337,'crackcoint3wMFeUjEyrNMRjUR3Y8wm2LopaQmy3PRjaKyWceN',.......`
 
 This is the genesis transaction, that transfers 31337 coins to address crackcoint3wMFe... Change this address to the address generated with generateGenesis.py. So in this example, I change:
 
@@ -117,3 +123,10 @@ Now if you press `i` on both nodes, you should see that the coins are transferre
 You can now transfer coins from device A to device B and back. Here is a screenshot:
 
 ![Alt text](https://raw.githubusercontent.com/DutchGraa/crackcoin/master/crackcoin-usage.png "Transfering coins")
+
+
+## Common problems
+
+- UDP is chosen to send transactions and such, because it doesn't take a lot of code. These packets have a maximum length of about 500 bytes. After that, you'll have to fragment packets, which kind of sucks. This is why zlib compression is used.  
+- Don't forget to close crackcoin with typing `q` and wait for the threads to end.
+- Crackcoin only works on the local network because of UDP broadcasts, but you also need an internet connection or else the method `getLocalIP` will fail.
