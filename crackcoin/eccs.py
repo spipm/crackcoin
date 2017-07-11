@@ -72,7 +72,7 @@ class ellipticCurve(object):
     def point_neg(self, point):
         """Returns -point."""
 
-        assert is_on_curve(point)
+        assert self.is_on_curve(point)
 
         if point is None:
             # -0 = 0
@@ -81,7 +81,7 @@ class ellipticCurve(object):
         x, y = point
         result = (x, -y % self.p)
 
-        assert is_on_curve(result)
+        assert self.is_on_curve(result)
 
         return result
 
@@ -132,7 +132,7 @@ class ellipticCurve(object):
 
         if k < 0:
             # k * point = -k * (-point)
-            return self.scalar_mult(-k, point_neg(point))
+            return self.scalar_mult(-k, self.point_neg(point))
 
         result = None
         addend = point
