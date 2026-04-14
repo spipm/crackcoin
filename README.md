@@ -1,5 +1,7 @@
 # crackcoin
 
+(migrated to https://codeberg.org/spipm/crackcoin)
+
 Crackcoin is a very basic blockchain-free cryptocurrency PoC in Python. It's a project for discovering cryptocurrencies.
 
 Note that this is a PoC that runs only on local networks and does not provide proper security. The code should only be used to get familiar with the building blocks for a cryptocurrency. Also, crackcoin should not be confused with the (dead) currency CrackCoin (CRACK) from 2014.
